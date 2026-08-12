@@ -84,28 +84,12 @@
     
     .btn { background-color: var(--accent); color: white; border: none; padding: 14px 24px; font-size: 0.95rem; font-weight: 600; border-radius: 6px; cursor: pointer; transition: background 0.2s; width: 100%; text-align: center; text-decoration: none; display: inline-block; }
     .btn:hover { background-color: var(--accent-hover); }
-    .btn:disabled { background-color: var(--border); cursor: not-allowed; opacity: 0.5; }
 
     .action-group { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
     .btn-whatsapp { background-color: #25D366; color: #000; font-weight: 700; }
     .btn-whatsapp:hover { background-color: #20bd5a; }
     .btn-email { background-color: transparent; border: 1px solid var(--border); color: var(--text-main); }
     .btn-email:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
-
-    /* Initially hide the iframe container */
-    .form-container-hidden {
-      display: none !important;
-    }
-    
-    /* Optional overlay effect if you prefer to blur/disable instead of completely hiding */
-    /*
-    .form-container-disabled {
-      opacity: 0.3;
-      pointer-events: none;
-      filter: blur(2px);
-      transition: all 0.3s ease;
-    }
-    */
 
     @media (max-width: 640px) {
       .domain-grid { grid-template-columns: 1fr; }
@@ -122,7 +106,6 @@
       <a href="#overview">Overview</a>
       <a href="#calculator">Estimate</a>
       <a href="#terms">Terms</a>
-      <a href="#order">Order</a>
     </nav>
   </header>
 
@@ -238,57 +221,56 @@
     <section id="terms">
       <h2>Terms of Service & Ethics</h2>
 
-    <div class="terms-box">
-            <h4>📜 Terms of Service & Master Client Agreement</h4>
-            <p>Notice to Clients: By submitting an order or engaging our services, you acknowledge that you have read, understood, and agreed to the terms outlined below.</p>
-    
-            <h4>1. Scope of Services & Ethics</h4>
-            <p>1.1. Academic Assistance & Co-Writing: Services offered under Research & Composition Assistance are intended as high-level reference drafts, model papers, structural guides, or a variety of creative projects. The provider provides expert research, analysis, and composition support to assist the client’s independent scholarly work.</p>
-            <p>1.2. Academic Integrity: The client is solely responsible for ensuring that their use of the completed work complies with their institution's academic integrity policies, honor codes, and submission guidelines or the guidelines and requirements of their publisher.</p>
-            <p>1.3. Consulting & Feedback: Consulting calls, peer-review simulations, and beta-reading reports represent expert academic evaluations and guidance. They do not guarantee specific grades, institutional approvals, or journal acceptances.</p>
-    
-            <h4>2. Intellectual Property & Ownership Rights</h4>
-            <p>2.1. Transfer of Ownership: Upon 100% full payment clearance, all rights, title, and intellectual property in the custom-written deliverables transfer exclusively to the client.</p>
-            <p>2.2. Pre-Payment Rights: Until final payment is cleared, all rights to drafts, notes, and preliminary outputs remain the exclusive intellectual property of the provider. Unpaid material may not be used, published, or submitted in any form.</p>
-            <p>2.3. Portfolio Exception: Unless explicitly restricted by a signed Non-Disclosure Agreement (NDA) or client opt-out request, the provider reserves the right to use anonymized, non-confidential excerpts for professional portfolio purposes.</p>
-    
-            <h4>3. Payment Structure & Retainers</h4>
-            <p>3.1. Standard Payment Milestones:</p>
-            <p>Projects under ₹5,000 / $100:<br>
-            50% non-refundable upfront retainer to initiate work.<br>
-            50% balance payment prior to the delivery of the final water-mark-free file.</p>
-            <p>Large Projects & Dissertations (over ₹5,000 / $100):<br>
-            40% Upfront Retainer (covers initial outline, source hunting, and Phase 1 drafting).<br>
-            30% Midpoint Deposit (due upon delivery of the first substantial chapter/half draft).<br>
-            30% Final Balance (due prior to final completed deliverable release).</p>
-            <p>3.2. Payment Methods: Payments are accepted via UPI, Direct Bank Transfer (NEFT/IMPS), Razorpay/Stripe, or PayPal for international transfers. Any transactional fees or foreign currency exchange surcharges are borne by the client.</p>
-    
-            <h4>4. Revisions & Support Windows</h4>
-            <p>4.1. Included Support Window: Every project includes one (1) free round of minor revisions within the defined active support window post-delivery:</p>
-            <p>Express/Rush Projects (1–3 days): 3-Day support window.<br>
-            Short Projects (4–10 days): 7-Day support window.<br>
-            Medium Projects (11–30 days): 14-Day support window.<br>
-            Dissertations/Long-term (30+ days): 30-Day support window.</p>
-            <p>4.2. Minor vs. Major Revision Definitions:<br>
-            Minor Revisions (Included): Tweaks to prose, tone refinement, line edits, minor evidence additions, or formatting/citation corrections that align with the original brief.<br>
-            Major Revisions (Extra Charge): Alterations that change the core argument, switch the theoretical framework, add entirely new chapters/texts not in the initial brief, or alter the approved project outline.</p>
-            <p>4.3. Purchasable Add-ons: Additional revision passes or extensions to the support window can be purchased via the modular calculator or invoice add-on.</p>
-    
-            <h4>5. Client Communication & Delays</h4>
-            <p>5.1. Client Responsibilities: Timely delivery depends on timely feedback. If a project requires client approval at intermediate steps (e.g., outline approval), the project timeline pauses until written confirmation is received.</p>
-            <p>5.2. Dormant Projects: If a client becomes unresponsive for more than 14 consecutive days without prior notice, the project will be placed on hold, and a re-activation fee (+15% of project value) may apply to resume work.</p>
-            <p>5.3. Timeline of Work: The declared time for the project does not officially commence from the date the client submits the request but when the project has been accepted by the provider and the commencement declared after initial follow-up.</p>
-    
-            <h4>6. Cancellation & Refund Policy</h4>
-            <p>6.1. Cancellation by Client:</p>
-            <p>If canceled before work commences: Full refund minus a 10% administrative processing fee.<br>
-            If canceled after work has started: The initial 40%–50% upfront retainer is non-refundable to cover research time and allocation. Any completed work up to the cancellation point will be delivered to the client.</p>
-            <p>6.2. Cancellation by Provider: In the rare event that the provider cannot complete a project due to emergency or unforeseen circumstances, a 100% refund of all unearned funds will be issued immediately.</p>
-    
-            <h4>7. Confidentiality & Data Protection</h4>
-            <p>7.1. Privacy Guarantee: All personal details, draft uploads, topic information, and institutional affiliations shared by the client are strictly confidential and will never be shared, sold, or uploaded to public AI databases or third-party repositories.</p>
-          </div>
-      
+      <div class="terms-box">
+        <h4>📜 Terms of Service & Master Client Agreement</h4>
+        <p>Notice to Clients: By submitting an order or engaging our services, you acknowledge that you have read, understood, and agreed to the terms outlined below.</p>
+
+        <h4>1. Scope of Services & Ethics</h4>
+        <p>1.1. Academic Assistance & Co-Writing: Services offered under Research & Composition Assistance are intended as high-level reference drafts, model papers, structural guides, or a variety of creative projects. The provider provides expert research, analysis, and composition support to assist the client’s independent scholarly work.</p>
+        <p>1.2. Academic Integrity: The client is solely responsible for ensuring that their use of the completed work complies with their institution's academic integrity policies, honor codes, and submission guidelines or the guidelines and requirements of their publisher.</p>
+        <p>1.3. Consulting & Feedback: Consulting calls, peer-review simulations, and beta-reading reports represent expert academic evaluations and guidance. They do not guarantee specific grades, institutional approvals, or journal acceptances.</p>
+
+        <h4>2. Intellectual Property & Ownership Rights</h4>
+        <p>2.1. Transfer of Ownership: Upon 100% full payment clearance, all rights, title, and intellectual property in the custom-written deliverables transfer exclusively to the client.</p>
+        <p>2.2. Pre-Payment Rights: Until final payment is cleared, all rights to drafts, notes, and preliminary outputs remain the exclusive intellectual property of the provider. Unpaid material may not be used, published, or submitted in any form.</p>
+        <p>2.3. Portfolio Exception: Unless explicitly restricted by a signed Non-Disclosure Agreement (NDA) or client opt-out request, the provider reserves the right to use anonymized, non-confidential excerpts for professional portfolio purposes.</p>
+
+        <h4>3. Payment Structure & Retainers</h4>
+        <p>3.1. Standard Payment Milestones:</p>
+        <p>Projects under ₹5,000 / $100:<br>
+        50% non-refundable upfront retainer to initiate work.<br>
+        50% balance payment prior to the delivery of the final water-mark-free file.</p>
+        <p>Large Projects & Dissertations (over ₹5,000 / $100):<br>
+        40% Upfront Retainer (covers initial outline, source hunting, and Phase 1 drafting).<br>
+        30% Midpoint Deposit (due upon delivery of the first substantial chapter/half draft).<br>
+        30% Final Balance (due prior to final completed deliverable release).</p>
+        <p>3.2. Payment Methods: Payments are accepted via UPI, Direct Bank Transfer (NEFT/IMPS), Razorpay/Stripe, or PayPal for international transfers. Any transactional fees or foreign currency exchange surcharges are borne by the client.</p>
+
+        <h4>4. Revisions & Support Windows</h4>
+        <p>4.1. Included Support Window: Every project includes one (1) free round of minor revisions within the defined active support window post-delivery:</p>
+        <p>Express/Rush Projects (1–3 days): 3-Day support window.<br>
+        Short Projects (4–10 days): 7-Day support window.<br>
+        Medium Projects (11–30 days): 14-Day support window.<br>
+        Dissertations/Long-term (30+ days): 30-Day support window.</p>
+        <p>4.2. Minor vs. Major Revision Definitions:<br>
+        Minor Revisions (Included): Tweaks to prose, tone refinement, line edits, minor evidence additions, or formatting/citation corrections that align with the original brief.<br>
+        Major Revisions (Extra Charge): Alterations that change the core argument, switch the theoretical framework, add entirely new chapters/texts not in the initial brief, or alter the approved project outline.</p>
+        <p>4.3. Purchasable Add-ons: Additional revision passes or extensions to the support window can be purchased via the modular calculator or invoice add-on.</p>
+
+        <h4>5. Client Communication & Delays</h4>
+        <p>5.1. Client Responsibilities: Timely delivery depends on timely feedback. If a project requires client approval at intermediate steps (e.g., outline approval), the project timeline pauses until written confirmation is received.</p>
+        <p>5.2. Dormant Projects: If a client becomes unresponsive for more than 14 consecutive days without prior notice, the project will be placed on hold, and a re-activation fee (+15% of project value) may apply to resume work.</p>
+        <p>5.3. Timeline of Work: The declared time for the project does not officially commence from the date the client submits the request but when the project has been accepted by the provider and the commencement declared after initial follow-up.</p>
+
+        <h4>6. Cancellation & Refund Policy</h4>
+        <p>6.1. Cancellation by Client:</p>
+        <p>If canceled before work commences: Full refund minus a 10% administrative processing fee.<br>
+        If canceled after work has started: The initial 40%–50% upfront retainer is non-refundable to cover research time and allocation. Any completed work up to the cancellation point will be delivered to the client.</p>
+        <p>6.2. Cancellation by Provider: In the rare event that the provider cannot complete a project due to emergency or unforeseen circumstances, a 100% refund of all unearned funds will be issued immediately.</p>
+
+        <h4>7. Confidentiality & Data Protection</h4>
+        <p>7.1. Privacy Guarantee: All personal details, draft uploads, topic information, and institutional affiliations shared by the client are strictly confidential and will never be shared, sold, or uploaded to public AI databases or third-party repositories.</p>
+      </div>
 
       <div class="form-group">
         <label class="checkbox-label" style="color: var(--text-main);">
@@ -298,8 +280,8 @@
       </div>
     </section>
 
-    <!-- SECTION 4: ORDER & INTAKE (Initially Hidden) -->
-    <section id="order" class="form-container-hidden">
+    <!-- SECTION 4: ORDER & INTAKE (Initially Hidden with inline style) -->
+    <section id="order" style="display: none;">
       <h2>Complete Your Intake</h2>
       <p>Submit your details via the form below. Your unique Order ID is pre-configured.</p>
 
@@ -330,8 +312,8 @@
     let currentOrderId = 'WRK-1001';
     let currentTotalFormatted = '₹1,800';
 
-    const MY_PHONE_NUMBER = "917742766925"; // Target Contact: +91 7742 766925
-    const MY_EMAIL = "contact@yourdomain.com"; // Replace with your target email address
+    const MY_PHONE_NUMBER = "917742766925";
+    const MY_EMAIL = "contact@yourdomain.com";
 
     const academicRates = {
       INR: { BA: { execution: 1.8, guided: 2.2, groundup: 2.8 }, MA: { execution: 2.5, guided: 3.0, groundup: 3.8 }, PhD: { execution: 3.5, guided: 4.2, groundup: 5.0 } },
@@ -342,6 +324,20 @@
       INR: { beta: 0.60, dev_edit: 1.20, poetry: 300, consult_call: 2000 },
       USD: { beta: 0.012, dev_edit: 0.025, poetry: 8.0, consult_call: 40.0 }
     };
+
+    function toggleFormAccess() {
+      const checkbox = document.getElementById('terms-checkbox');
+      const orderSection = document.getElementById('order');
+
+      if (checkbox.checked) {
+        orderSection.style.display = 'block';
+        setTimeout(() => {
+          orderSection.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      } else {
+        orderSection.style.display = 'none';
+      }
+    }
 
     function initOrderId() {
       let lastNum = localStorage.getItem('last_order_num');
@@ -431,53 +427,22 @@
     }
 
     function updateContactLinks() {
-      // Build pre-filled text
       const msg = `Hello! I would like to inquire about an order.\n\nOrder ID: #${currentOrderId}\nCategory: ${currentCategory.toUpperCase()}\nEstimated Quote: ${currentTotalFormatted}\n\nLooking forward to hearing from you!`;
       
-      // WhatsApp Link
       const waUrl = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(msg)}`;
       document.getElementById('whatsapp-link').href = waUrl;
 
-      // Email Link
       const mailtoUrl = `mailto:${MY_EMAIL}?subject=${encodeURIComponent("New Order Inquiry #" + currentOrderId)}&body=${encodeURIComponent(msg)}`;
       document.getElementById('email-link').href = mailtoUrl;
-    }
-
-    function toggleFormAccess() {
-      const checkbox = document.getElementById('terms-checkbox');
-      const orderSection = document.getElementById('order');
-
-      if (checkbox.checked) {
-        orderSection.classList.remove('form-container-hidden');
-        orderSection.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        orderSection.classList.add('form-container-hidden');
-      }
     }
 
     window.onload = function() {
       initOrderId();
       calculatePrice();
 
-      // Embed Google Form URL
       const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID_HERE/viewform?embedded=true";
       document.getElementById('google-form-iframe').src = formUrl;
     };
-  </script>
-    <script>
-    function toggleFormAccess() {
-      const checkbox = document.getElementById('terms-checkbox');
-      const formWrapper = document.getElementById('form-wrapper');
-  
-      if (checkbox.checked) {
-        // Reveal form and automatically scroll down to it
-        formWrapper.classList.remove('form-container-hidden');
-        formWrapper.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        // Hide form if unchecked
-        formWrapper.classList.add('form-container-hidden');
-      }
-    }
   </script>
 </body>
 </html>
