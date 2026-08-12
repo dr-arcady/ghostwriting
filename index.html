@@ -92,6 +92,21 @@
     .btn-email { background-color: transparent; border: 1px solid var(--border); color: var(--text-main); }
     .btn-email:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
 
+    /* Initially hide the iframe container */
+    .form-container-hidden {
+      display: none !important;
+    }
+    
+    /* Optional overlay effect if you prefer to blur/disable instead of completely hiding */
+    /*
+    .form-container-disabled {
+      opacity: 0.3;
+      pointer-events: none;
+      filter: blur(2px);
+      transition: all 0.3s ease;
+    }
+    */
+
     @media (max-width: 640px) {
       .domain-grid { grid-template-columns: 1fr; }
       header { flex-direction: column; gap: 12px; align-items: flex-start; }
@@ -277,18 +292,14 @@
 
       <div class="form-group">
         <label class="checkbox-label" style="color: var(--text-main);">
-          <input type="checkbox" id="tos-agree" onchange="toggleOrderButton()">
+          <input type="checkbox" id="terms-checkbox" onchange="toggleFormAccess()">
           I have read and agree to the Master Client Agreement.
         </label>
       </div>
-
-      <a id="tos-proceed-link" href="#order" style="text-decoration: none;">
-        <button id="tos-btn" class="btn" disabled>Proceed to Intake Form →</button>
-      </a>
     </section>
 
-    <!-- SECTION 4: ORDER & INTAKE -->
-    <section id="order">
+    <!-- SECTION 4: ORDER & INTAKE (Initially Hidden) -->
+    <section id="order" class="form-container-hidden">
       <h2>Complete Your Intake</h2>
       <p>Submit your details via the form below. Your unique Order ID is pre-configured.</p>
 
@@ -432,8 +443,16 @@
       document.getElementById('email-link').href = mailtoUrl;
     }
 
-    function toggleOrderButton() {
-      document.getElementById('tos-btn').disabled = !document.getElementById('tos-agree').checked;
+    function toggleFormAccess() {
+      const checkbox = document.getElementById('terms-checkbox');
+      const orderSection = document.getElementById('order');
+
+      if (checkbox.checked) {
+        orderSection.classList.remove('form-container-hidden');
+        orderSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        orderSection.classList.add('form-container-hidden');
+      }
     }
 
     window.onload = function() {
@@ -444,6 +463,21 @@
       const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID_HERE/viewform?embedded=true";
       document.getElementById('google-form-iframe').src = formUrl;
     };
+  </script>
+    <script>
+    function toggleFormAccess() {
+      const checkbox = document.getElementById('terms-checkbox');
+      const formWrapper = document.getElementById('form-wrapper');
+  
+      if (checkbox.checked) {
+        // Reveal form and automatically scroll down to it
+        formWrapper.classList.remove('form-container-hidden');
+        formWrapper.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Hide form if unchecked
+        formWrapper.classList.add('form-container-hidden');
+      }
+    }
   </script>
 </body>
 </html>
