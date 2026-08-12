@@ -42,7 +42,7 @@
     .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
     /* Section Styling */
-    section { margin-bottom: 56px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 36px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    section { margin-bottom: 48px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 36px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
     
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
@@ -75,10 +75,6 @@
     .price-box { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(201, 168, 106, 0.05) 100%); border: 1px solid var(--accent); padding: 24px; border-radius: 8px; text-align: center; margin: 28px 0; }
     .price-amount { font-size: 2.8rem; font-weight: 700; color: var(--success); font-family: 'Playfair Display', serif; }
 
-    /* Terms Scroll Box */
-    .terms-box { height: 220px; overflow-y: auto; background: var(--bg-input); border: 1px solid var(--border); padding: 16px 20px; border-radius: 6px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
-    .terms-box h4 { color: var(--text-main); margin: 12px 0 4px 0; font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
-
     /* Order Badge & Action Buttons */
     .order-badge { background: var(--bg-input); border: 1px dashed var(--accent-gold); padding: 12px; border-radius: 6px; text-align: center; font-family: monospace; font-size: 1.1rem; color: var(--accent-gold); margin-bottom: 24px; }
     
@@ -105,7 +101,7 @@
     <nav>
       <a href="#overview">Overview</a>
       <a href="#calculator">Estimate</a>
-      <a href="#terms">Terms</a>
+      <a href="#order">Intake Form</a>
     </nav>
   </header>
 
@@ -130,7 +126,7 @@
           <h3>Creative & Literary Arts</h3>
           <ul>
             <li>Fiction & Non-Fiction Beta Reading</li>
-            <li>Story and Worldbuilding Consultation</li>
+            <li>Story and Worldbuilding Developmental Consulting</li>
             <li>Poetry Critique & Line Editing</li>
             <li>Hindi ⇄ English Literary Translation</li>
           </ul>
@@ -157,7 +153,7 @@
       <!-- ACADEMIC CONTROLS -->
       <div id="academic-fields">
         <div class="form-group">
-          <label for="service-tier">Academic Academic Tier</label>
+          <label for="service-tier">Academic Tier</label>
           <select id="service-tier" onchange="calculatePrice()">
             <option value="BA">Undergraduate (BA / Bachelor's)</option>
             <option value="MA">Postgraduate (MA / Master's)</option>
@@ -214,84 +210,21 @@
         <div id="total-price" class="price-amount">₹1,800</div>
       </div>
 
-      <a href="#terms" class="btn">Review Terms & Lock Order →</a>
+      <a href="#order" class="btn">Proceed to Intake Form ↓</a>
     </section>
 
-    <!-- SECTION 3: TERMS OF SERVICE -->
-    <section id="terms">
-      <h2>Terms of Service & Ethics</h2>
-
-      <div class="terms-box">
-        <h4>📜 Terms of Service & Master Client Agreement</h4>
-        <p>Notice to Clients: By submitting an order or engaging our services, you acknowledge that you have read, understood, and agreed to the terms outlined below.</p>
-
-        <h4>1. Scope of Services & Ethics</h4>
-        <p>1.1. Academic Assistance & Co-Writing: Services offered under Research & Composition Assistance are intended as high-level reference drafts, model papers, structural guides, or a variety of creative projects. The provider provides expert research, analysis, and composition support to assist the client’s independent scholarly work.</p>
-        <p>1.2. Academic Integrity: The client is solely responsible for ensuring that their use of the completed work complies with their institution's academic integrity policies, honor codes, and submission guidelines or the guidelines and requirements of their publisher.</p>
-        <p>1.3. Consulting & Feedback: Consulting calls, peer-review simulations, and beta-reading reports represent expert academic evaluations and guidance. They do not guarantee specific grades, institutional approvals, or journal acceptances.</p>
-
-        <h4>2. Intellectual Property & Ownership Rights</h4>
-        <p>2.1. Transfer of Ownership: Upon 100% full payment clearance, all rights, title, and intellectual property in the custom-written deliverables transfer exclusively to the client.</p>
-        <p>2.2. Pre-Payment Rights: Until final payment is cleared, all rights to drafts, notes, and preliminary outputs remain the exclusive intellectual property of the provider. Unpaid material may not be used, published, or submitted in any form.</p>
-        <p>2.3. Portfolio Exception: Unless explicitly restricted by a signed Non-Disclosure Agreement (NDA) or client opt-out request, the provider reserves the right to use anonymized, non-confidential excerpts for professional portfolio purposes.</p>
-
-        <h4>3. Payment Structure & Retainers</h4>
-        <p>3.1. Standard Payment Milestones:</p>
-        <p>Projects under ₹5,000 / $100:<br>
-        50% non-refundable upfront retainer to initiate work.<br>
-        50% balance payment prior to the delivery of the final water-mark-free file.</p>
-        <p>Large Projects & Dissertations (over ₹5,000 / $100):<br>
-        40% Upfront Retainer (covers initial outline, source hunting, and Phase 1 drafting).<br>
-        30% Midpoint Deposit (due upon delivery of the first substantial chapter/half draft).<br>
-        30% Final Balance (due prior to final completed deliverable release).</p>
-        <p>3.2. Payment Methods: Payments are accepted via UPI, Direct Bank Transfer (NEFT/IMPS), Razorpay/Stripe, or PayPal for international transfers. Any transactional fees or foreign currency exchange surcharges are borne by the client.</p>
-
-        <h4>4. Revisions & Support Windows</h4>
-        <p>4.1. Included Support Window: Every project includes one (1) free round of minor revisions within the defined active support window post-delivery:</p>
-        <p>Express/Rush Projects (1–3 days): 3-Day support window.<br>
-        Short Projects (4–10 days): 7-Day support window.<br>
-        Medium Projects (11–30 days): 14-Day support window.<br>
-        Dissertations/Long-term (30+ days): 30-Day support window.</p>
-        <p>4.2. Minor vs. Major Revision Definitions:<br>
-        Minor Revisions (Included): Tweaks to prose, tone refinement, line edits, minor evidence additions, or formatting/citation corrections that align with the original brief.<br>
-        Major Revisions (Extra Charge): Alterations that change the core argument, switch the theoretical framework, add entirely new chapters/texts not in the initial brief, or alter the approved project outline.</p>
-        <p>4.3. Purchasable Add-ons: Additional revision passes or extensions to the support window can be purchased via the modular calculator or invoice add-on.</p>
-
-        <h4>5. Client Communication & Delays</h4>
-        <p>5.1. Client Responsibilities: Timely delivery depends on timely feedback. If a project requires client approval at intermediate steps (e.g., outline approval), the project timeline pauses until written confirmation is received.</p>
-        <p>5.2. Dormant Projects: If a client becomes unresponsive for more than 14 consecutive days without prior notice, the project will be placed on hold, and a re-activation fee (+15% of project value) may apply to resume work.</p>
-        <p>5.3. Timeline of Work: The declared time for the project does not officially commence from the date the client submits the request but when the project has been accepted by the provider and the commencement declared after initial follow-up.</p>
-
-        <h4>6. Cancellation & Refund Policy</h4>
-        <p>6.1. Cancellation by Client:</p>
-        <p>If canceled before work commences: Full refund minus a 10% administrative processing fee.<br>
-        If canceled after work has started: The initial 40%–50% upfront retainer is non-refundable to cover research time and allocation. Any completed work up to the cancellation point will be delivered to the client.</p>
-        <p>6.2. Cancellation by Provider: In the rare event that the provider cannot complete a project due to emergency or unforeseen circumstances, a 100% refund of all unearned funds will be issued immediately.</p>
-
-        <h4>7. Confidentiality & Data Protection</h4>
-        <p>7.1. Privacy Guarantee: All personal details, draft uploads, topic information, and institutional affiliations shared by the client are strictly confidential and will never be shared, sold, or uploaded to public AI databases or third-party repositories.</p>
-      </div>
-
-      <div class="form-group">
-        <label class="checkbox-label" style="color: var(--text-main);">
-          <input type="checkbox" id="terms-checkbox" onchange="toggleFormAccess()">
-          I have read and agree to the Master Client Agreement.
-        </label>
-      </div>
-    </section>
-
-    <!-- SECTION 4: ORDER & INTAKE (Initially Hidden with inline style) -->
-    <section id="order" style="display: none;">
+    <!-- SECTION 3: INTAKE & ORDER FORM -->
+    <section id="order">
       <h2>Complete Your Intake</h2>
-      <p>Submit your details via the form below. Your unique Order ID is pre-configured.</p>
+      <p>Submit your project details via the secure form below. Terms and project conditions are confirmed during submission.</p>
 
       <div class="order-badge">
         YOUR ORDER ID: <span id="display-order-id">#WRK-1001</span>
       </div>
 
-      <!-- Google Form Container Wrapper -->
+      <!-- Google Form Embedded Container -->
       <div style="background: var(--bg-input); border-radius: 8px; padding: 8px; border: 1px solid var(--border); margin-bottom: 24px;">
-        <iframe id="google-form-iframe" src="about:blank" width="100%" height="450" frameborder="0">Loading intake form...</iframe>
+        <iframe id="google-form-iframe" src="about:blank" width="100%" height="600" frameborder="0">Loading intake form...</iframe>
       </div>
 
       <div class="action-group">
@@ -324,20 +257,6 @@
       INR: { beta: 0.60, dev_edit: 1.20, poetry: 300, consult_call: 2000 },
       USD: { beta: 0.012, dev_edit: 0.025, poetry: 8.0, consult_call: 40.0 }
     };
-
-    function toggleFormAccess() {
-      const checkbox = document.getElementById('terms-checkbox');
-      const orderSection = document.getElementById('order');
-
-      if (checkbox.checked) {
-        orderSection.style.display = 'block';
-        setTimeout(() => {
-          orderSection.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
-      } else {
-        orderSection.style.display = 'none';
-      }
-    }
 
     function initOrderId() {
       let lastNum = localStorage.getItem('last_order_num');
@@ -440,7 +359,7 @@
       initOrderId();
       calculatePrice();
 
-      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe89pBYOJTAy3X08LRWfsYhlqqX3JAIuBUxsxbfWrHiVKcblg/viewform?usp=publish-editor";
+      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID_HERE/viewform?embedded=true";
       document.getElementById('google-form-iframe').src = formUrl;
     };
   </script>
