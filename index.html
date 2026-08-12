@@ -248,6 +248,10 @@
     const MY_PHONE_NUMBER = "917742766925";
     const MY_EMAIL = "contact@yourdomain.com";
 
+    // Google Form Auto-Fill Configuration
+    const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe89pBYOJTAy3X08LRWfsYhlqqX3JAIuBUxsxbfWrHiVKcblg/viewform?embedded=true";
+    const ORDER_ID_ENTRY_KEY = "entry.580082006"; // Replace 123456789 with your field's entry ID
+
     const academicRates = {
       INR: { BA: { execution: 1.8, guided: 2.2, groundup: 2.8 }, MA: { execution: 2.5, guided: 3.0, groundup: 3.8 }, PhD: { execution: 3.5, guided: 4.2, groundup: 5.0 } },
       USD: { BA: { execution: 0.035, guided: 0.045, groundup: 0.055 }, MA: { execution: 0.050, guided: 0.065, groundup: 0.080 }, PhD: { execution: 0.070, guided: 0.090, groundup: 0.110 } }
@@ -257,6 +261,14 @@
       INR: { beta: 0.60, dev_edit: 1.20, poetry: 300, consult_call: 2000 },
       USD: { beta: 0.012, dev_edit: 0.025, poetry: 8.0, consult_call: 40.0 }
     };
+
+    function updateGoogleFormIframe(orderId) {
+      const iframe = document.getElementById('google-form-iframe');
+      if (iframe) {
+        const prefilledUrl = `${GOOGLE_FORM_BASE_URL}&${ORDER_ID_ENTRY_KEY}=${encodeURIComponent('#' + orderId)}`;
+        iframe.src = prefilledUrl;
+      }
+    }
 
     function initOrderId() {
       let lastNum = localStorage.getItem('last_order_num');
@@ -268,6 +280,10 @@
       localStorage.setItem('last_order_num', lastNum);
       currentOrderId = 'WRK-' + lastNum;
       document.getElementById('display-order-id').innerText = '#' + currentOrderId;
+      
+      // Auto-fill the Order ID into the Google Form
+      updateGoogleFormIframe(currentOrderId);
+      
       updateContactLinks();
     }
 
@@ -358,9 +374,6 @@
     window.onload = function() {
       initOrderId();
       calculatePrice();
-
-      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID_HERE/viewform?embedded=true";
-      document.getElementById('google-form-iframe').src = formUrl;
     };
   </script>
 </body>
