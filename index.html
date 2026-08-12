@@ -222,9 +222,11 @@
         YOUR ORDER ID: <span id="display-order-id">#WRK-1001</span>
       </div>
 
-      <!-- Google Form Embedded Container -->
-      <div style="background: var(--bg-input); border-radius: 8px; padding: 8px; border: 1px solid var(--border); margin-bottom: 24px;">
-        <iframe id="google-form-iframe" src="about:blank" width="100%" height="600" frameborder="0">Loading intake form...</iframe>
+      <!-- Primary Intake Action Button -->
+      <div style="margin-bottom: 24px;">
+        <a id="form-link" href="#" target="_blank" class="btn" style="background-color: var(--accent-gold); color: #0b0f19; font-weight: 700; font-size: 1.05rem; padding: 16px; text-align: center;">
+          📋 Open Google Intake Form (Order ID Auto-Filled) ↗
+        </a>
       </div>
 
       <div class="action-group">
@@ -249,7 +251,8 @@
     const MY_EMAIL = "contact@yourdomain.com";
 
     // Google Form Auto-Fill Configuration
-    const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe89pBYOJTAy3X08LRWfsYhlqqX3JAIuBUxsxbfWrHiVKcblg/viewform?embedded=true";
+    // Use standard viewform parameter for direct tab links
+    const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe89pBYOJTAy3X08LRWfsYhlqqX3JAIuBUxsxbfWrHiVKcblg/viewform?usp=pp_url";
     const ORDER_ID_ENTRY_KEY = "entry.580082006"; // Replace 123456789 with your field's entry ID
 
     const academicRates = {
@@ -262,11 +265,11 @@
       USD: { beta: 0.012, dev_edit: 0.025, poetry: 8.0, consult_call: 40.0 }
     };
 
-    function updateGoogleFormIframe(orderId) {
-      const iframe = document.getElementById('google-form-iframe');
-      if (iframe) {
+    function updateFormLink(orderId) {
+      const formBtn = document.getElementById('form-link');
+      if (formBtn) {
         const prefilledUrl = `${GOOGLE_FORM_BASE_URL}&${ORDER_ID_ENTRY_KEY}=${encodeURIComponent(orderId)}`;
-        iframe.src = prefilledUrl;
+        formBtn.href = prefilledUrl;
       }
     }
 
@@ -281,8 +284,8 @@
       currentOrderId = lastNum.toString();
       document.getElementById('display-order-id').innerText = '#' + currentOrderId;
       
-      // Auto-fill the Order ID into the Google Form
-      updateGoogleFormIframe(currentOrderId);
+      // Update Google Form link with pre-filled Order ID
+      updateFormLink(currentOrderId);
       
       updateContactLinks();
     }
