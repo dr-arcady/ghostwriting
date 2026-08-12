@@ -265,7 +265,7 @@
     function updateGoogleFormIframe(orderId) {
       const iframe = document.getElementById('google-form-iframe');
       if (iframe) {
-        const prefilledUrl = `${GOOGLE_FORM_BASE_URL}&${ORDER_ID_ENTRY_KEY}=${encodeURIComponent('#' + orderId)}`;
+        const prefilledUrl = `${GOOGLE_FORM_BASE_URL}&${ORDER_ID_ENTRY_KEY}=${encodeURIComponent(orderId)}`;
         iframe.src = prefilledUrl;
       }
     }
@@ -278,7 +278,7 @@
         lastNum = parseInt(lastNum, 10) + 1;
       }
       localStorage.setItem('last_order_num', lastNum);
-      currentOrderId = 'WRK-' + lastNum;
+      currentOrderId = lastNum.toString();
       document.getElementById('display-order-id').innerText = '#' + currentOrderId;
       
       // Auto-fill the Order ID into the Google Form
