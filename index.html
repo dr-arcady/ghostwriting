@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic & Creative Literary Services</title>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-surface: #1e293b;
+      --bg-card: #334155;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #475569;
+      --success: #10b981;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg-primary); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
+
+    /* Screen Management */
+    .screen { display: none; width: 100%; max-width: 800px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); animation: fadeIn 0.3s ease-in-out; }
+    .screen.active { display: block; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Progress Stepper */
+    .stepper { display: flex; justify-content: space-between; margin-bottom: 28px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .step-item { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+    .step-item.active { color: var(--accent); }
+
+    /* Typography & Buttons */
+    h1 { font-size: 2rem; margin-bottom: 12px; }
+    h2 { font-size: 1.5rem; margin-bottom: 16px; }
+    p { color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+
+    .btn { background-color: var(--accent); color: white; border: none; padding: 14px 28px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: background 0.2s ease; width: 100%; text-align: center; display: inline-block; }
+    .btn:hover { background-color: var(--accent-hover); }
+    .btn:disabled { background-color: var(--border); cursor: not-allowed; opacity: 0.6; }
+
+    /* Controls & Forms */
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
+    select, input[type="number"] { width: 100%; padding: 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; color: var(--text-main); font-size: 1rem; outline: none; }
+
+    .toggle-row { display: flex; gap: 10px; margin-bottom: 20px; }
+    .toggle-btn { flex: 1; padding: 10px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .toggle-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+    .checkbox-label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal; color: var(--text-muted); }
+    .checkbox-label input { width: 18px; height: 18px; accent-color: var(--accent); }
+
+    /* Price Output Box */
+    .price-display { background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1px solid var(--accent); margin: 24px 0; text-align: center; }
+    .price-amount { font-size: 2.5rem; font-weight: 700; color: var(--success); }
+
+    /* Scrollable Terms Box */
+    .terms-box { height: 260px; overflow-y: auto; background: var(--bg-card); border: 1px solid var(--border); padding: 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+    .terms-box h4 { color: var(--text-main); margin: 12px 0 6px 0; }
+    .terms-box h4:first-child { margin-top: 0; }
+
+    .order-badge { background: var(--bg-card); border: 1px dashed var(--accent); padding: 12px; border-radius: 8px; font-family: monospace; font-size: 1.1rem; text-align: center; margin-bottom: 20px; }
+    .whatsapp-btn { background-color: #25D366; margin-top: 12px; }
+    .whatsapp-btn:hover { background-color: #1eb956; }
+  </style>
+</head>
+<body>
+
+  <!-- SCREEN 1: SPLASH PAGE -->
+  <div id="screen-1" class="screen active" style="text-align: center;">
+    <h1>Academic & Creative Literary Services</h1>
+    <p>PhD-led research, thesis consulting, model composition, translation, and expert creative writing beta reading & manuscript critiques.</p>
+    
+    <div style="text-align: left; background: var(--bg-card); padding: 20px; border-radius: 8px; margin: 24px 0;">
+      <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Service Domains:</h3>
+      <ul style="color: var(--text-muted); padding-left: 20px; line-height: 1.8;">
+        <li><strong>Academic Research & Composition:</strong> Model Papers, Literature Synthesis, Theoretical Framing.</li>
+        <li><strong>Academic Editing:</strong> Proofreading, Deep Copyediting, MLA 9/Chicago/APA Formatting.</li>
+        <li><strong>Creative Writing Support:</strong> Beta Reading Reports, Poetry Critiques, Story Consulting.</li>
+        <li><strong>Multilingual Translation:</strong> Hindi ⇄ English Archival & Literary Translation.</li>
+      </ul>
+    </div>
+
+    <button class="btn" onclick="nextScreen(2)">Tap to Enter & Estimate Price →</button>
+  </div>
+
+  <!-- SCREEN 2: ESTIMATE PRICE -->
+  <div id="screen-2" class="screen">
+    <div class="stepper">
+      <span class="step-item active">1. Estimate</span>
+      <span class="step-item">2. Terms</span>
+      <span class="step-item">3. Order</span>
+    </div>
+
+    <h2>Estimate Service Price</h2>
+
+    <!-- Currency Switcher -->
+    <div class="toggle-row">
+      <button id="curr-inr" class="toggle-btn active" onclick="setCurrency('INR')">INR (₹)</button>
+      <button id="curr-usd" class="toggle-btn" onclick="setCurrency('USD')">USD ($)</button>
+    </div>
+
+    <!-- Category Selector -->
+    <div class="toggle-row">
+      <button id="cat-academic" class="toggle-btn active" onclick="setCategory('academic')">Academic Services</button>
+      <button id="cat-creative" class="toggle-btn" onclick="setCategory('creative')">Creative Writing</button>
+    </div>
+
+    <!-- ACADEMIC OPTIONS -->
+    <div id="academic-fields">
+      <div class="form-group">
+        <label for="service-tier">Academic Tier</label>
+        <select id="service-tier" onchange="calculatePrice()">
+          <option value="BA">Undergraduate (BA / Bachelor's)</option>
+          <option value="MA">Postgraduate (MA / Master's)</option>
+          <option value="PhD">Doctoral & Beyond (PhD / Faculty)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="service-level">Service Scope</label>
+        <select id="service-level" onchange="calculatePrice()">
+          <option value="execution">Pure Execution (Client Provides Outline & Sources)</option>
+          <option value="guided">Guided Drafting (Review + Feedback + Drafting)</option>
+          <option value="groundup">Full Ground-Up (Research + Outline + Drafting)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="word-count">Estimated Word Count</label>
+        <input type="number" id="word-count" value="1000" min="250" step="250" oninput="calculatePrice()">
+      </div>
+    </div>
+
+    <!-- CREATIVE WRITING OPTIONS -->
+    <div id="creative-fields" style="display: none;">
+      <div class="form-group">
+        <label for="creative-service">Creative Service Type</label>
+        <select id="creative-service" onchange="calculatePrice()">
+          <option value="beta">Beta Reading & Reader Report (Prose)</option>
+          <option value="dev_edit">Developmental Editing (Prose)</option>
+          <option value="poetry">Poetry Line Edit & Critique (Per Poem)</option>
+          <option value="consult_call">60-Min Story Strategy Call (Flat Rate)</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="creative-quantity-group">
+        <label id="creative-unit-label" for="creative-quantity">Manuscript Word Count</label>
+        <input type="number" id="creative-quantity" value="5000" min="1" oninput="calculatePrice()">
+      </div>
+    </div>
+
+    <!-- MODULAR ADD-ONS -->
+    <div class="form-group">
+      <label>Add-ons & Extras</label>
+      <div class="checkbox-group">
+        <label class="checkbox-label" id="addon-proofread-wrapper"><input type="checkbox" id="addon-proofread" onchange="calculatePrice()"> Surface Proofreading (+15%)</label>
+        <label class="checkbox-label" id="addon-editing-wrapper"><input type="checkbox" id="addon-editing" onchange="calculatePrice()"> In-Depth Copyediting (+30%)</label>
+        <label class="checkbox-label"><input type="checkbox" id="addon-express" onchange="calculatePrice()"> Express Delivery 48-72h (+30%)</label>
+        <label class="checkbox-label" id="addon-plag-wrapper"><input type="checkbox" id="addon-plagiarism" onchange="calculatePrice()"> Turnitin Plagiarism & AI Scan (Flat ₹500 / $10)</label>
+      </div>
+    </div>
+
+    <div class="price-display">
+      <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 4px;">Estimated Total</div>
+      <div id="total-price" class="price-amount">₹1,800</div>
+    </div>
+
+    <p style="font-size: 0.8rem; font-style: italic;">*Note: Quotes are calculated dynamically. Final quotes are confirmed after reviewing project specifics.</p>
+
+    <button class="btn" onclick="nextScreen(3)" style="margin-top: 12px;">Proceed to Terms of Service →</button>
+  </div>
+
+  <!-- SCREEN 3: TERMS OF SERVICE -->
+  <div id="screen-3" class="screen">
+    <div class="stepper">
+      <span class="step-item">1. Estimate</span>
+      <span class="step-item active">2. Terms</span>
+      <span class="step-item">3. Order</span>
+    </div>
+
+    <h2>Terms of Service & Agreement</h2>
+    <p>Review the client agreement before creating your order.</p>
+
+    <div class="terms-box">
+      <h4>1. Scope of Services & Ethics</h4>
+      <p><strong>1.1 Academic Assistance:</strong> Research & Composition Assistance is provided as high-level custom model papers, reference drafts, or analytical frameworks to assist independent scholarly work. Clients are solely responsible for compliance with home institution honor codes.</p>
+      <p><strong>1.2 Creative Writing:</strong> Beta reading, developmental editing, poetry critiques, and story consulting represent creative feedback and artistic evaluation. Creative work remains 100% the intellectual property of the author.</p>
+
+      <h4>2. Intellectual Property & Ownership</h4>
+      <p><strong>2.1 Academic Model Rights:</strong> Upon 100% full payment clearance, all rights and title to custom academic deliverables transfer exclusively to the client.</p>
+      <p><strong>2.2 Creative Rights:</strong> For creative writing projects, the author retains 100% ownership, copyright, and publishing rights at all times.</p>
+      <p><strong>2.3 Privacy Guarantee:</strong> Materials will never be shared, published, or trained on public AI databases.</p>
+
+      <h4>3. Payment Structure & Retainers</h4>
+      <p>Projects require a 50% upfront retainer prior to commencement. The remaining 50% balance is due prior to final watermark-free deliverable release. Large dissertations/manuscripts may utilize a 3-stage milestone model (40/30/30).</p>
+
+      <h4>4. Revisions & Support Windows</h4>
+      <p>Includes 1 free round of minor adjustments (fixing prose, formatting, or minor adjustments aligned with the original brief) within the active support window (3 to 30 days based on project length).</p>
+
+      <h4>5. Cancellation & Refunds</h4>
+      <p>Cancellations made after work has commenced forfeit the upfront retainer to cover research and time allocation. Completed work up to the cancellation point will be delivered.</p>
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-label" style="color: var(--text-main);">
+        <input type="checkbox" id="tos-agree" onchange="toggleOrderButton()">
+        I have read, understood, and agree to the Terms of Service.
+      </label>
+    </div>
+
+    <button id="tos-btn" class="btn" disabled onclick="nextScreen(4)">Create Your Order →</button>
+  </div>
+
+  <!-- SCREEN 4: FINAL ORDER FORM -->
+  <div id="screen-4" class="screen">
+    <div class="stepper">
+      <span class="step-item">1. Estimate</span>
+      <span class="step-item">2. Terms</span>
+      <span class="step-item active">3. Order</span>
+    </div>
+
+    <h2>Create Your Order</h2>
+    <p>Your unique Order ID has been generated below. Enter this exact Order ID in the intake form.</p>
+
+    <div class="order-badge">
+      Your Order ID: <span id="display-order-id" style="color: var(--accent); font-weight: bold;">#WRK-1001</span>
+    </div>
+
+    <!-- Replace the src below with your embedded Google Form URL -->
+    <div style="background: var(--bg-card); border-radius: 8px; padding: 12px; margin-bottom: 20px; text-align: center; border: 1px dashed var(--border);">
+      <iframe id="google-form-iframe" src="about:blank" width="100%" height="450" frameborder="0">Loading intake form...</iframe>
+    </div>
+
+    <p style="font-size: 0.85rem;">Once submitted, you will be contacted via email/phone within 12–24 hours for final scope confirmation and invoice setup.</p>
+
+    <a id="whatsapp-link" href="#" target="_blank" style="text-decoration: none;">
+      <button class="btn whatsapp-btn">📲 Urgent? Send Order ID via WhatsApp</button>
+    </a>
+  </div>
+
+  <script>
+    let currentCurrency = 'INR';
+    let currentCategory = 'academic';
+    let currentOrderId = 'WRK-1001';
+
+    const academicRates = {
+      INR: { BA: { execution: 1.8, guided: 2.2, groundup: 2.8 }, MA: { execution: 2.5, guided: 3.0, groundup: 3.8 }, PhD: { execution: 3.5, guided: 4.2, groundup: 5.0 } },
+      USD: { BA: { execution: 0.035, guided: 0.045, groundup: 0.055 }, MA: { execution: 0.050, guided: 0.065, groundup: 0.080 }, PhD: { execution: 0.070, guided: 0.090, groundup: 0.110 } }
+    };
+
+    const creativeRates = {
+      INR: { beta: 0.60, dev_edit: 1.20, poetry: 300, consult_call: 2000 },
+      USD: { beta: 0.012, dev_edit: 0.025, poetry: 8.0, consult_call: 40.0 }
+    };
+
+    function initOrderId() {
+      let lastNum = localStorage.getItem('last_order_num');
+      if (!lastNum) {
+        lastNum = 1001;
+      } else {
+        lastNum = parseInt(lastNum, 10) + 1;
+      }
+      localStorage.setItem('last_order_num', lastNum);
+      currentOrderId = 'WRK-' + lastNum;
+      document.getElementById('display-order-id').innerText = '#' + currentOrderId;
+
+      const waMsg = encodeURIComponent(`Hi! I placed an urgent request on your portal. Order ID: #${currentOrderId}`);
+      document.getElementById('whatsapp-link').href = `https://wa.me/?text=${waMsg}`;
+    }
+
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      document.getElementById('curr-inr').classList.toggle('active', curr === 'INR');
+      document.getElementById('curr-usd').classList.toggle('active', curr === 'USD');
+      calculatePrice();
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.getElementById('cat-academic').classList.toggle('active', cat === 'academic');
+      document.getElementById('cat-creative').classList.toggle('active', cat === 'creative');
+      
+      document.getElementById('academic-fields').style.display = cat === 'academic' ? 'block' : 'none';
+      document.getElementById('creative-fields').style.display = cat === 'creative' ? 'block' : 'none';
+      
+      document.getElementById('addon-proofread-wrapper').style.display = cat === 'academic' ? 'flex' : 'none';
+      document.getElementById('addon-editing-wrapper').style.display = cat === 'academic' ? 'flex' : 'none';
+      document.getElementById('addon-plag-wrapper').style.display = cat === 'academic' ? 'flex' : 'none';
+
+      calculatePrice();
+    }
+
+    function calculatePrice() {
+      let total = 0;
+      const symbol = currentCurrency === 'INR' ? '₹' : '$';
+
+      if (currentCategory === 'academic') {
+        const tier = document.getElementById('service-tier').value;
+        const level = document.getElementById('service-level').value;
+        const words = parseInt(document.getElementById('word-count').value, 10) || 0;
+        
+        total = words * academicRates[currentCurrency][tier][level];
+
+        let multiplier = 1.0;
+        if (document.getElementById('addon-proofread').checked) multiplier += 0.15;
+        if (document.getElementById('addon-editing').checked) multiplier += 0.30;
+        if (document.getElementById('addon-express').checked) multiplier += 0.30;
+        total = total * multiplier;
+
+        if (document.getElementById('addon-plagiarism').checked) {
+          total += (currentCurrency === 'INR' ? 500 : 10);
+        }
+      } else {
+        const cService = document.getElementById('creative-service').value;
+        const qtyInput = document.getElementById('creative-quantity');
+        const qtyLabel = document.getElementById('creative-unit-label');
+        const qtyGroup = document.getElementById('creative-quantity-group');
+
+        if (cService === 'consult_call') {
+          qtyGroup.style.display = 'none';
+          total = creativeRates[currentCurrency].consult_call;
+        } else {
+          qtyGroup.style.display = 'block';
+          const qty = parseInt(qtyInput.value, 10) || 0;
+
+          if (cService === 'poetry') {
+            qtyLabel.innerText = 'Number of Poems';
+            total = qty * creativeRates[currentCurrency].poetry;
+          } else {
+            qtyLabel.innerText = 'Manuscript Word Count';
+            total = qty * creativeRates[currentCurrency][cService];
+          }
+        }
+
+        let multiplier = 1.0;
+        if (document.getElementById('addon-express').checked) multiplier += 0.30;
+        total = total * multiplier;
+      }
+
+      document.getElementById('total-price').innerText = `${symbol}${Math.round(total).toLocaleString()}`;
+    }
+
+    function toggleOrderButton() {
+      document.getElementById('tos-btn').disabled = !document.getElementById('tos-agree').checked;
+    }
+
+    function nextScreen(screenNum) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(`screen-${screenNum}`).classList.add('active');
+      window.scrollTo(0, 0);
+
+      if (screenNum === 4) {
+        // REPLACE THIS URL WITH YOUR EMBEDDED GOOGLE FORM LINK
+        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID_HERE/viewform?embedded=true";
+        document.getElementById('google-form-iframe').src = formUrl;
+      }
+    }
+
+    window.onload = function() {
+      initOrderId();
+      calculatePrice();
+    };
+  </script>
+</body>
+</html>
